@@ -63,6 +63,20 @@ class cmdb(object):
 	thirdidlist= [item['id'] for item in json.loads(result)['data']['sub_biz']]
 	return thirdidlist
 
+
+###下面可以添加各种告警的媒介。这里得到如何下的结果：{'username':'username',,'groups':['dsq','biz'],'phone':"xxxxx"}
+    def produce_correct_userinfo(self,kargs):
+        ##kargs = self.second(self.first())
+        userinfo = {}
+        for item in kargs:
+            for user in  item["user"]:
+                if not userinfo.has_key(user["id"]):
+                    userinfo[user["id"]] = {"username":user["fullname"],"groups":[item["name"]],"phone":user["phone"]}
+                else:
+                    userinfo[user["id"]]["groups"].append(item["name"])
+
+        print userinfo
+
 if __name__ == "__main__":
     cmdb = cmdb("xxxxxx","xxxx","xxxx")
     cmdb.get_token()
