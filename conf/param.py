@@ -70,6 +70,18 @@ param = {
             "auth": "%s",
             "id": 1
             },
+         "update":{
+            "jsonrpc":"2.0",
+             "method":"host.update",
+             "params":{
+                 "hostid":"%s",
+                 "groups":{
+                     "groupid":"%s"
+                 }
+             },
+             "auth":"%s",
+             "id":1
+         },
         "get":{
             "jsonrpc": "2.0",
             "method": "host.get",
@@ -124,6 +136,17 @@ param = {
                     "permission":"0",
                     "id":"%s"
                 }
+            },
+            "auth":"%s",
+            "id":1
+        }
+    },
+    "mediatype":{
+        "get":{
+            "jsonrpc":"2.0",
+            "method":"mediatype.get",
+            "params":{
+                "output":"extend"
             },
             "auth":"%s",
             "id":1
